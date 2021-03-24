@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <style>
+        body{
+            background: rgb(0, 195, 255);
+            color: white;
+            font: normal 18pt Arial;
+            ;
+        }
+        .multado{
+            color:#e74c3c;
+    </style>
+
+
+    <h1>Sistema de Multas Detran RJ</h1>
+    Velocidade do carro: <input type="number" name="txtvel" id="txtvel"> km/h
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res">
+
+    
+    </div>
+    <script>
+        function calcular() {
+            var txtv = window.document.querySelector('input#txtvel')
+            /* também poderia utilizar da seguinte forma: var txtv = window.document.getElementById('txtvel') */
+            var res = window.document.querySelector('div#res')
+            var vel = Number(txtv.value)
+            res.innerHTML = `<p>Sua velocidade atual é de <strong>${vel}km/h</strong></p>`
+            if (vel > 50) { 
+                res.innerHTML += `<p>Você está <strong class="multado">MULTADO</strong> por excesso de velocidade!</p>` 
+                res.innerHTML += `<p><strong class="multado">Pare de ser multada, Gabi!</strong></p>`
+            }
+            res.innerHTML += `<p>Dirija sempre com cinto de segurança!</p>`
+        }
+        /* o += depois do res.innerHTML é para que ele não receba a mensagem e apague a mensagem anterior.
+        Se tornando assim uma nova mensagem */
+    </script>
+</body>
+</html>

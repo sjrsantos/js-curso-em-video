@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+</head>
+<body>
+    <style>
+        body{
+            background: rgb(0, 195, 255);
+            color: white;
+            font: normal 18pt Arial;
+        }
+        div{
+            background-color: red;
+            padding: 1rem;
+            margin-top: 1rem;
+            width: 350px;
+            height: 50px;
+                
+        }
+        div:hover{
+            background-color: green;
+        }
+    </style>
+
+    <h1>Descubra se você é Brasileiro</h1>
+    País de Origem: <input type="text" name="txtNacionalidade" id="txtNacionalidade">
+    <input type="button" value="Verificar" onclick="verificarNacionalidade()">
+    <div id="resultado">
+
+    </div>
+    <script>
+        
+        function verificarNacionalidade() {
+            var nacionalidade = (window.document.getElementById('txtNacionalidade').value)
+            var resultado = window.document.getElementById('resultado')
+            console.log(nacionalidade)
+            if (nacionalidade === 'brasil') {
+            resultado.innerHTML = `Você é Brasileiro!` // clicar 2 vezes em qualquer palavra e apertar F2 muda todas. Refatoração
+        } else {
+            resultado.innerHTML = `Você não é Brasileiro!`
+        }
+        }
+
+    </script>
+</body>    
+</html>
