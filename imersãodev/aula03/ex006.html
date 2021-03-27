@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <title>
+        Imersão Dev - Aula 04
+    </title>
+    <style>
+        body {
+        font-family: 'Roboto Mono',monospace;
+        text-align:center;
+        background-image: url('https://brandemia.org/sites/default/files/icono_netflix_nuevo.jpg');
+        background-color: #000000;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+      }
+      
+      .container {
+        text-align: center;
+        padding: 20px;
+    
+      }
+      img{
+        padding: 1rem;
+      }
+      
+      .page-title {
+        color: #ffffff;
+        margin: 0 0 5px;
+      }
+      
+      .page-subtitle {
+        color: #ffffff;
+        margin-top: 5px;
+      }
+      
+      .page-logo {
+        width: 200px;
+      }
+      
+      .alura-logo {
+        width: 40px;
+        position: absolute;
+        top: 10px;
+        right:10px;
+      }
+      
+      body > img {
+        margin: 0 10px;
+      }
+    
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-title">
+            Newfix
+        </h1>
+        <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo"
+            alt="">
+    </div>
+    <a href="https://alura.com.br/" target="_blank">
+        <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+    </a>
+
+</body>
+<body>
+
+    <script>
+
+
+        var listaFilmes = [
+            "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
+            "https://m.media-amazon.com/images/M/MV5BMjE1MDQ4MjI1OV5BMl5BanBnXkFtZTcwNzcwODAzMw@@._V1_UY268_CR3,0,182,268_AL_.jpg"]
+
+        for (var i = 0; i < listaFilmes.length; i++) {
+            document.write("<img src=" + listaFilmes[i] + ">") // "img src=" + link + ">" serve para transformar o link em imagem
+        }
+    </script>
+</body>
+</html>
