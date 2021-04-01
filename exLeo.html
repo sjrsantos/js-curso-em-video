@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+    <h1>Interaja com os blocos</h1>
+    <style>
+        div#area1 {
+        
+            width: 100vw;
+            height: 100vh;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 64px 64px 64px;
+            justify-content: center;
+            align-content: center;
+            gap: 5px;
+            width: 64px;
+            height: 64px;
+            background-color: cornflowerblue;
+            margin-top: 5px;
+        }
+
+        div#area2 {
+        
+        width: 100vw;
+        height: 100vh;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 64px 64px 64px;
+        justify-content: center;
+        align-content: center;
+        gap: 5px;
+        width: 64px;
+        height: 64px;
+        background-color: cornflowerblue;
+        margin-top: 5px;
+        }
+
+        div#area3 {
+        
+        width: 100vw;
+        height: 100vh;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 64px 64px 64px;
+        justify-content: center;
+        align-content: center;
+        gap: 5px;
+        width: 64px;
+        height: 64px;
+        background-color: cornflowerblue;
+        margin-top: 5px;
+        }
+
+        div#area4 {
+        
+        width: 100vw;
+        height: 100vh;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 64px 64px 64px;
+        justify-content: center;
+        align-content: center;
+        gap: 5px;
+        width: 64px;
+        height: 64px;
+        background-color: cornflowerblue;
+        margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="area1">
+        
+    </div>
+    <div id="area2">
+        
+    </div>
+    <div id="area3">
+       
+    </div>
+    <div id="area4">
+        
+    </div>
+    <script>
+        var blocos = ["area1", "area2", "area3", "area4"]
+        a.addEventListener('click', clicar)
+        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseout', saiu)
+
+        
+        for (var i = 0; i < blocos.length; i ++){          
+            function entrar(blocos[i]) {
+              a.innerText = 'Entrou!'
+              function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+              }
+
+            }
+            function saiu() {
+                a.innerText = 'Saiu!'
+            
+            }
+
+    </script>
+</body>
+</html>

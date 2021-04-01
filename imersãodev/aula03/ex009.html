@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <title>
+        Imersão Dev - Aula 07
+    </title>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-super-trunfo.png" class="page-logo"
+            alt="">
+        <h1 class="page-title">Super Trunfo</h1>
+
+        <button onclick="sortearCarta()" id="btnSortear">Sortear carta</button>
+
+        <form id="form">
+            <h2>Escolha o seu atributo</h2>
+            <div class="opcoes" id="opcoes"></div>
+            <button type="button" id="btnJogar" onclick="jogar()" disabled="false">Jogar</button>
+        </form>
+    </div>
+</body>
+<style>
+    body {
+        font-family: 'Roboto Mono', monospace;
+        min-height: 854px;
+        background-image: url('https://www.alura.com.br/assets/img/imersoes/dev-2021/dia-07-super-trunfo-bg.png');
+        background-color: #000000;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        padding-bottom: 20vh;
+    }
+    
+    .container {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .page-title {
+        color: #ffffff;
+        margin: 5px 0;
+    }
+    
+    button {
+        padding: .8rem 1.5rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+        border: none;
+        font-size: 1rem;
+    }
+    
+    h2 {
+        color: white;
+    }
+    
+    #carta-jogador {
+        width: 360px;
+        height: 500px;
+        overflow: auto;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    #carta-jogador h3 {
+        text-align: center;
+    }
+    
+    .carta-imagem {
+        border: 1px solid black;
+        height: 100px;
+        margin: 10px;
+    }
+    
+    .carta-imagem img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .carta-status {
+        height: 160px;
+        margin: 1.5rem;
+    }
+    
+    .carta-status input {
+        margin: 20px 10px;
+    }
+    
+    .opcoes {
+        color: white;
+    }
+</style>
+<script>
+    var cartaPaulo = { //objeto
+        nome:"Seiya de Pegasus",
+        atributos:{ //objeto dentro de um objeto
+            ataque:80,
+            defesa:60,
+            magia:90
+        }
+    }
+    var cartaRafa = {    
+        nome:"Bulbasauro",
+        atributos:{ 
+            ataque:70,
+            defesa:65,
+            magia:85
+        }
+    }
+    var cartaGui = {
+        nome:"Lorde Darth Vader",
+        atributos:{
+            ataque:88,
+            defesa:62,
+            magia:90
+        }
+    }
+
+    var cartas = [cartaPaulo, cartaRafa, cartaGui]
+
+    function sortearCarta(){
+        var numeroCartaMaquina = parseInt(Math.random()*3)
+        cartaMaquina = cartas[numeroCartaMaquina]
+        // console.log(cartaMaquina) - caso eu queira ver a carta da máquina
+
+
+        var numeroCartaJogador = parseInt(Math.random()*3)
+        while (numeroCartaJogador == numeroCartaMaquina){
+            numeroCartaJogador = parseInt(Math.random()*3)
+        }
+        cartaJogador = cartas[numeroCartaJogador]
+        console.log(cartaJogador)
+
+        document.getElementById('btnSortear').disabled = true
+        document.getElementById('btnJogar').disabled = false
+
+        exibirOpcoes()
+    }
+
+
+        function exibirOpcoes() {
+            var opcoes = document.getElementById('opcoes')
+            var opcoesTexto = ""
+            for (var atributo in cartaJogador.atributos){
+                opcoesTexto += "<input type='radio' name='atributo' value='" + atributo + "'>" + atributo
+                // o <> significa tag html
+                // type='radio' é o input tipo "bolinha", pra selecionar
+                // o que fica de fora da tag é o que vai aparecer na tela
+            }
+            opcoes.innerHTML = opcoesTexto
+        }
+
+        function obtemAtributoSelecionado(){
+            var radioAtributo = document.getElementsByName('atributo')
+            for (var i = 0; i < radioAtributo.length; i++){
+                if (radioAtributo[i].checked) {
+                   // console.log(radioAtributo[i].value) - para ver o atributo
+                    return radioAtributo[i].value
+                }
+            }
+        }
+
+        function jogar() {
+            var atributoSelecionado = obtemAtributoSelecionado()
+             // console.log(atributoSelecionado) - para ver o atributo selecionado
+
+            if (cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]){
+                alert('Venceu a carta da Máquina')
+            } else if (cartaJogador.atributos[atributoSelecionado] < cartaMaquina.atributos[atributoSelecionado]) {
+                alert('Perdeu. Carta da Máquina é maior!')
+            } else {
+                alert('Empatou!')
+            }
+            console.log(cartaMaquina)
+        }
+
+
+</script>
+</html>
