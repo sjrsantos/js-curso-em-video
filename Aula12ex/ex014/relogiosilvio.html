@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  
+<!-- =======================================================
+
+    OLÁ!!!
+
+    Eu sou o Silvio Júnior e podemos estudar juntos neste curso 
+    de JavaScript. Se tiver alguma dúvida responda aos meus 
+    comentários nos vídeos do Guanabara ou fale comigo por 
+    e-mail: silvio-sjunior@hotmail.com ou ainda pelo meu Whatsapp: 
+    (22) 98106-1353
+
+    Abraço do Silvio!
+
+   =======================================================  -->
+
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Silvio Júnior">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Relógio JavaScript</title>
+
+    <!-- Ícones do FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+
+    <!-- Estilo do nosso site -->
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0; 
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        background: rgba(20, 2, 57, 0.8);
+        font-family: 'Montserrat', sans-serif;
+        background-size: cover;
+        background-position: center;
+        font-size: 15pt;
+        font-weight: normal;
+        text-align: center;
+        color: #fff;
+      }
+      .manha {
+        background-image: linear-gradient(to bottom, 
+                          rgba(0, 168, 232, 0.8),
+                          rgba(0,0,0, 0.6)),
+                          url('fotomanha.jpg');
+      }
+      .tarde {
+        background-image: linear-gradient(to bottom, 
+                          rgba(247, 143, 0, 0.8),
+                          rgba(0,0,0, 0.6)),
+                          url('fototarde.jpg');
+      }
+      .noite {
+        background-image: linear-gradient(to bottom, 
+                          rgba(114, 58, 181, 0.8),
+                          rgba(0,0,0, 0.6)),
+                          url('fotonoite.jpg');
+      }
+      .madrugada {
+        background-image: linear-gradient(to bottom, 
+                          rgba(16, 33, 165, 0.8),
+                          rgba(0,0,0, 0.6)),
+                          url('fotomadrugada.jpg');
+      }
+      .container {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .icondia {
+        background: url('http://nandoangelo.com.br/assets/img/dia-e-noite-sprites.png');
+        background-position: 0px 80px;
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+      }
+      .bomdia       {background-position: 160px 80px;}
+      .boatarde     {background-position: 0px 80px;}
+      .boanoite     {background-position: 240px 80px;}
+      .boamadrugada {background-position: 80px 80px;}
+      .relogio { font-size: 3em; }
+      .calendario { font-size: 0.8em; }
+      footer {
+        margin-top: 3em;
+      }
+      .copy { 
+        color: #fff;
+        margin-bottom: 1em;
+      }
+      .fa {
+        color: #FFF;
+        font-size: 1em !important;
+        padding: 20px;
+        width: 20px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #fff;
+      }
+      .fa:hover {
+        transition: all 0.35s ease-out;
+      }
+      .fa-facebook:hover,
+      .fa-facebook:focus  { 
+        background-color: #3B5998;
+        border-color: #3B5998;
+      }
+      .fa-whatsapp:hover,
+      .fa-whatsapp:focus { 
+        background-color: #00b489;
+        border-color: #00b489;
+      }
+      .fa-instagram:hover,
+      .fa-instagram:focus { 
+        background-color: tomato;
+        border-color: tomato;
+      }
+      .fa-youtube:hover,
+      .fa-youtube:focus { 
+        background-color: #bb0000;
+        border-color: #bb0000;
+      }
+    </style>
+    
+  </head>
+
+  <!-- Inseri uma ID para que o JavaScript o encontre facilmente -->
+  <body id="bg">
+
+    <!-- 
+      .container
+      
+      Aqui iremos organizar os elementos do nosso relógio
+      para que eles fiquem centralizados na página
+    -->
+    <div class="container">
+      
+      <!-- inicio: .mensagem -->
+      <div class="mensagem">
+      
+        <!-- Aqui vem o sprite do ícone de acordo com a classe definida -->
+        <div id="iconlogo"></div>
+        
+        <!-- Aqui diremos "bom dia", ou "boa tarde", ou "boa noite" -->
+        <p> <!-- MENSAGEM AQUI --> </p>
+      
+      </div>
+      <!-- fim: .mensagem -->
+
+      <!-- inicio: .relogio -->
+      <div class="relogio">
+
+        <p> <!-- RELÓGIO ATUAL AQUI --> </p>
+
+      </div>
+      <!-- fim: .relogio -->
+
+      <!-- inicio: .calendario -->
+      <div class="calendario">
+
+        <p> <!-- CALENDÁRIO ATUAL AQUI --> </p>
+
+      </div>
+      <!-- fim: .calendario -->
+
+      <!-- início: RODAPÉ -->
+      <footer>
+        <!-- Copyright com Ano Atualizado automaticamente pelo Javascript -->
+        <p class="copy">&copy; Silvio Júnior <span class="ano">20xx</span></p>
+        
+        <!-- Links para minhas redes sociais -->
+        <a href="https://api.whatsapp.com/send?phone=22981061353" title="Mande uma mensagem pra mim" class="fa fa-whatsapp"></a>
+        <a href="https://www.instagram.com/sjrsantos/" title="Siga meu instagram" class="fa fa-instagram"></a>
+        <a href="https://www.facebook.com/silvio.junior.18" title="Seja meu amigo no Facebook" class="fa fa-facebook"></a>
+        <a href="https://www.linkedin.com/in/silvio-dos-santos-j%C3%BAnior-18704b57/" title="Me siga no LinkedIn" class="fa fa-linkedin"></a>
+      </footer>
+      <!-- fim: RODAPÉ -->
+
+    </div>
+    <!-- fim: .container -->
+
+    <script>
+
+      /* CRIANDO NOSSA FUNÇÃO MÁGICA */
+      function atualizaHora() {
+
+        // Variáveis para trabalhar com a data do sistema
+        var agora = new Date();
+        var horaAtual = agora.getHours();
+        var dia = agora.getDay();
+
+        // Manipuladores do DOM
+        var corpo       = document.getElementById('bg'); // para alterar o tema do site
+        var iconlogo    = document.getElementById('iconlogo'); // para alterar o ícone
+        var mensagem    = document.querySelector('.mensagem>p'); // para mudar a mensagem
+        var relogio     = document.querySelector('.relogio>p'); // para exibir o relógio
+        var calendario  = document.querySelector('.calendario>p'); // para exibir a data atual
+        var anoRodape   = document.querySelector('span.ano'); // para atualizar o ano no rodape
+
+        // Configuração de exibição da data e hora
+        var configLocal = 'pt-BR'; // Configuração do local
+        var configDate  = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+
+        /* 
+          TEMAS (cor e imagem de fundo)
+          ----------------------------------------------------
+          Teste os temas descomentando uma das linhas abaixo. 
+          Depois salve o arquivo e atualize a página.
+        */
+
+        // horaAtual = 6;   /* Bom dia */
+        // horaAtual = 12;  /* Boa tarde */
+        // horaAtual = 18;  /* Boa noite */
+        // horaAtual = 0;   /* Boa madrugada */
+
+        // Teste para alterar o tema de acordo com a hora do dia
+        if ( horaAtual < 6 ) {
+          
+          // BOA MADRUGADA
+          mensagem.innerText = 'Boa madrugada.'; // Altera a mensagem
+          iconlogo.className = 'icondia boamadrugada'; // Altera o ícone usando CSS
+          corpo.className = 'madrugada'; // Altera o tema
+
+        } else if ( horaAtual < 12 ) {
+          
+          // BOM DIA
+          mensagem.innerText = 'Bom dia!'; // ...
+          iconlogo.className = 'icondia bomdia'; // ...
+          corpo.className = 'manha'; // ...
+
+        } else if ( horaAtual < 18 ) {
+
+          // BOA TARDE
+          mensagem.innerText = 'Boa tarde.';
+          iconlogo.className = 'icondia boatarde';
+          corpo.className = 'tarde';
+
+        } else {
+          
+          // BOA NOITE
+          mensagem.innerText = 'Boa noite!';
+          iconlogo.className = 'icondia boanoite';
+          corpo.className = 'noite';
+        }
+
+        // Exibe o relógio com hora atual do sistema
+        relogio.innerText = agora.toLocaleTimeString(configLocal);
+
+        // Exibe calendário formatado
+        calendario.innerText = agora.toLocaleDateString(configLocal, configDate);
+
+        // Atualiza ano no rodape do site
+        anoRodape.innerText = agora.getFullYear();
+      }
+
+      // Chama a funcao no momento que a pagina é carregada
+      atualizaHora();
+
+      // Segue atualizando a hora chamando a função a cada segundo
+      setInterval(atualizaHora, 1000);      
+    </script>
+  </body>
+</html>

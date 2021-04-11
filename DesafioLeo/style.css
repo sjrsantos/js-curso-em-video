@@ -1,0 +1,41 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0, 30, 114);
+    font: normal 15pt arial;
+
+
+}
+
+header{
+    color: white;
+    text-align: center;
+
+}
+
+
+section{
+
+        height: 100%;
+        display: grid;
+        grid-template-columns: 64px 64px 64px;
+        justify-content: center;
+        align-content: center;
+
+        gap: 5px;
+    }
+
+    div {
+        width: 64px;
+        height: 64px;
+
+        background-color: cornflowerblue;
+    }
+}
+
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
+
+}
